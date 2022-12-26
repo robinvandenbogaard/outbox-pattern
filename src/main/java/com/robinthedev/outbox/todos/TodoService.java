@@ -10,13 +10,15 @@ import javax.transaction.Transactional;
 @ApplicationScoped
 public class TodoService {
 
+    @Inject ExternalIdProvider externalIdProvider;
+
     @Inject Clock clock;
 
     @Inject TodoRepository repository;
 
     @Transactional
     public void addTodo(AddTodoRequest request, AddTodoResponse response) {
-        var todo = Todo.incomplete(clock.now(), request.summary());
+        var todo = Todo.incomplete(externalIdProvider.next(), clock.now(), request.summary());
 
         var result = repository.save(todo);
         if (result.isRight()) {

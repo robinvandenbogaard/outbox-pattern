@@ -1,6 +1,7 @@
 package com.robinthedev.outbox.panache;
 
 import com.robinthedev.outbox.todos.TodoRepository;
+import com.robinthedev.outbox.todos.domain.ExternalId;
 import com.robinthedev.outbox.todos.domain.Summary;
 import com.robinthedev.outbox.todos.domain.Todo;
 import com.robinthedev.outbox.todos.domain.TodoError;
@@ -35,6 +36,9 @@ public class PancheTodoRepository implements TodoRepository {
 
     private Todo toTodo(TodoEntity todoEntity) {
         return new Todo(
-                todoEntity.createdAt, new Summary(todoEntity.summary), todoEntity.completedAt);
+                new ExternalId(todoEntity.externalId),
+                todoEntity.createdAt,
+                new Summary(todoEntity.summary),
+                todoEntity.completedAt);
     }
 }
