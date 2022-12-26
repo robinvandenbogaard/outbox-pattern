@@ -2,10 +2,7 @@ package com.robinthedev.outbox.rest;
 
 import com.robinthedev.outbox.todos.TodoService;
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -22,6 +19,15 @@ public class TodoResource {
         var response = new RAddTodoResponse();
 
         service.addTodo(request.toDomainRequest(), response);
+
+        return response.getResponse();
+    }
+
+    @GET
+    public Response listAll() {
+        var response = new RListTodosResponse();
+
+        service.listAll(response);
 
         return response.getResponse();
     }

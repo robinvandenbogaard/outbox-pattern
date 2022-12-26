@@ -1,11 +1,11 @@
 package com.robinthedev.outbox.todos;
 
-import com.robinthedev.outbox.todos.domain.SaveError;
 import com.robinthedev.outbox.todos.domain.Todo;
+import com.robinthedev.outbox.todos.domain.TodoError;
 
 public class TestAddTodoResponse implements AddTodoResponse {
     private Todo todo;
-    private SaveError error;
+    private TodoError error;
 
     public Todo getCreatedTodo() {
         return todo;
@@ -17,11 +17,11 @@ public class TestAddTodoResponse implements AddTodoResponse {
     }
 
     @Override
-    public void failedToCreateTodo(SaveError error) {
+    public void failedToCreateTodo(TodoError error) {
         this.error = error;
     }
 
-    public SaveError getError() {
+    public TodoError getError() {
         return error;
     }
 }

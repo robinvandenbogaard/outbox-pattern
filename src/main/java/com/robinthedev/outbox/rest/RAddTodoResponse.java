@@ -1,8 +1,8 @@
 package com.robinthedev.outbox.rest;
 
 import com.robinthedev.outbox.todos.AddTodoResponse;
-import com.robinthedev.outbox.todos.domain.SaveError;
 import com.robinthedev.outbox.todos.domain.Todo;
+import com.robinthedev.outbox.todos.domain.TodoError;
 import javax.ws.rs.core.Response;
 
 public class RAddTodoResponse implements AddTodoResponse {
@@ -18,7 +18,7 @@ public class RAddTodoResponse implements AddTodoResponse {
     }
 
     @Override
-    public void failedToCreateTodo(SaveError error) {
+    public void failedToCreateTodo(TodoError error) {
         response = Response.serverError().entity(new RError(error)).build();
     }
 }

@@ -1,9 +1,9 @@
 package com.robinthedev.outbox.rest;
 
-import com.robinthedev.outbox.todos.domain.SaveError;
+import com.robinthedev.outbox.todos.domain.TodoError;
 
 public record RError(String message) {
-    public RError(SaveError error) {
+    public RError(TodoError error) {
         this(error.message());
     }
 }

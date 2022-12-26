@@ -1,9 +1,11 @@
 package com.robinthedev.outbox.todos;
 
-import com.robinthedev.outbox.todos.domain.SaveError;
 import com.robinthedev.outbox.todos.domain.Todo;
+import com.robinthedev.outbox.todos.domain.TodoError;
 import io.vavr.control.Either;
 import java.io.IOException;
+import java.util.List;
+import org.apache.commons.lang3.NotImplementedException;
 
 public class FakeTodoRepository implements TodoRepository {
     private Todo savedTodo;
@@ -15,10 +17,15 @@ public class FakeTodoRepository implements TodoRepository {
     }
 
     @Override
-    public Either<SaveError, Todo> save(Todo todo) {
+    public Either<TodoError, Todo> save(Todo todo) {
         this.savedTodo = todo;
-        if (failOnSave) return Either.left(new SaveError(cause.getMessage(), cause));
+        if (failOnSave) return Either.left(new TodoError(cause.getMessage(), cause));
         return Either.right(todo);
+    }
+
+    @Override
+    public Either<TodoError, List<Todo>> findAll() {
+        return Either.left(new TodoError("not implemented", new NotImplementedException()));
     }
 
     public void failOnSave(IOException cause) {

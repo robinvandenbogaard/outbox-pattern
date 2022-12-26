@@ -1,5 +1,6 @@
 package com.robinthedev.outbox.todos;
 
+import com.robinthedev.outbox.rest.RListTodosResponse;
 import com.robinthedev.outbox.todos.domain.Todo;
 import com.robinthedev.time.Clock;
 import javax.enterprise.context.ApplicationScoped;
@@ -22,6 +23,15 @@ public class TodoService {
             response.createdTodo(todo);
         } else {
             response.failedToCreateTodo(result.getLeft());
+        }
+    }
+
+    public void listAll(RListTodosResponse response) {
+        var result = repository.findAll();
+        if (result.isRight()) {
+            response.foundTodos(result.get());
+        } else {
+            response.failedToListTodos(result.getLeft());
         }
     }
 }
