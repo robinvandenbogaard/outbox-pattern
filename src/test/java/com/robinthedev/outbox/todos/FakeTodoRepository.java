@@ -3,7 +3,6 @@ package com.robinthedev.outbox.todos;
 import com.robinthedev.outbox.todos.domain.SaveError;
 import com.robinthedev.outbox.todos.domain.Todo;
 import io.vavr.control.Either;
-
 import java.io.IOException;
 
 public class FakeTodoRepository implements TodoRepository {
@@ -18,8 +17,7 @@ public class FakeTodoRepository implements TodoRepository {
     @Override
     public Either<SaveError, Todo> save(Todo todo) {
         this.savedTodo = todo;
-        if (failOnSave)
-            return Either.left(new SaveError(cause.getMessage(), cause));
+        if (failOnSave) return Either.left(new SaveError(cause.getMessage(), cause));
         return Either.right(todo);
     }
 

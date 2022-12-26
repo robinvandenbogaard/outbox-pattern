@@ -1,22 +1,17 @@
 package com.robinthedev.outbox.todos;
 
-
 import com.robinthedev.outbox.todos.domain.Todo;
 import com.robinthedev.time.Clock;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 @ApplicationScoped
-public
-class TodoService {
+public class TodoService {
 
-    @Inject
-    Clock clock;
+    @Inject Clock clock;
 
-    @Inject
-    TodoRepository repository;
+    @Inject TodoRepository repository;
 
     @Transactional
     public void addTodo(AddTodoRequest request, AddTodoResponse response) {

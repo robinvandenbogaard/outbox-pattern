@@ -1,7 +1,6 @@
 package com.robinthedev.outbox.todos;
 
 import com.robinthedev.time.Clock;
-
 import java.time.LocalDateTime;
 import java.time.Month;
 

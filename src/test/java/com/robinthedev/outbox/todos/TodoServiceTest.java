@@ -1,15 +1,14 @@
 package com.robinthedev.outbox.todos;
 
-import com.robinthedev.outbox.todos.domain.Summary;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
+import com.robinthedev.outbox.todos.domain.Summary;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.Month;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class TodoServiceTest {
 
@@ -39,14 +38,16 @@ public class TodoServiceTest {
     void createsAtTheTimeDeterminedByTheClock() {
         var response = new TestAddTodoResponse();
 
-        //default time
+        // default time
         service.addTodo(new AddTodoRequest(new Summary("Laundry")), response);
         assertThat(response.getCreatedTodo().createdAt(), is(FakeClock.DEFAULT_TIME));
 
-        //alternative time
+        // alternative time
         fakeClock.setDateTime(LocalDateTime.of(2022, Month.FEBRUARY, 1, 6, 0));
         service.addTodo(new AddTodoRequest(new Summary("Laundry")), response);
-        assertThat(response.getCreatedTodo().createdAt(), is(LocalDateTime.of(2022, Month.FEBRUARY, 1, 6, 0)));
+        assertThat(
+                response.getCreatedTodo().createdAt(),
+                is(LocalDateTime.of(2022, Month.FEBRUARY, 1, 6, 0)));
     }
 
     @Test

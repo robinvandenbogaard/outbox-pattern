@@ -1,7 +1,7 @@
 package com.robinthedev.time;
 
-import javax.enterprise.context.ApplicationScoped;
 import java.time.LocalDateTime;
+import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 class LocalSystemClock implements Clock {

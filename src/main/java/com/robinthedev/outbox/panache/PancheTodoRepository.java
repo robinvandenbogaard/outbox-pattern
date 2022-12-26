@@ -5,7 +5,6 @@ import com.robinthedev.outbox.todos.domain.SaveError;
 import com.robinthedev.outbox.todos.domain.Todo;
 import io.quarkus.panache.common.exception.PanacheQueryException;
 import io.vavr.control.Either;
-
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped

@@ -1,7 +1,6 @@
 package com.robinthedev.outbox.rest;
 
 import com.robinthedev.outbox.todos.TodoService;
-
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -15,8 +14,7 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class TodoResource {
 
-    @Inject
-    TodoService service;
+    @Inject TodoService service;
 
     @POST
     @Path("add")

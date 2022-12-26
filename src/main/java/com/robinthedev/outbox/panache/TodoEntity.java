@@ -2,10 +2,9 @@ package com.robinthedev.outbox.panache;
 
 import com.robinthedev.outbox.todos.domain.Todo;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
-
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import java.time.LocalDateTime;
 
 @Entity
 public class TodoEntity extends PanacheEntity {
@@ -18,9 +17,7 @@ public class TodoEntity extends PanacheEntity {
 
     public LocalDateTime completedAt;
 
-    public TodoEntity() {
-
-    }
+    public TodoEntity() {}
 
     public TodoEntity(Todo todo) {
         this.createdAt = todo.createdAt();
