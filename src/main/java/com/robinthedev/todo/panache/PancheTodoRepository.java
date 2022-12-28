@@ -11,7 +11,7 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class PancheTodoRepository implements TodoRepository {
+class PancheTodoRepository implements TodoRepository {
 
     @Override
     public Either<TodoError, Todo> save(Todo todo) {

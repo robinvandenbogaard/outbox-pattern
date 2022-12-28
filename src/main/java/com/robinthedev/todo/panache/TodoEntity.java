@@ -7,8 +7,8 @@ import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-@Entity
-public class TodoEntity extends PanacheEntity {
+@Entity(name = "todos")
+class TodoEntity extends PanacheEntity {
 
     @Column(nullable = false)
     public LocalDateTime createdAt;

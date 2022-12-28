@@ -6,7 +6,7 @@ import java.util.UUID;
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class RandomExternalIdProvider implements ExternalIdProvider {
+class RandomExternalIdProvider implements ExternalIdProvider {
     @Override
     public ExternalId next() {
         return new ExternalId(UUID.randomUUID());

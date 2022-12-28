@@ -1,7 +1,7 @@
 package com.robinthedev.todo.core;
 
-import com.robinthedev.time.Clock;
 import com.robinthedev.todo.core.domain.Todo;
+import com.robinthedev.todo.core.events.NewTodoCreatedEvent;
 import com.robinthedev.todo.rest.RListTodosResponse;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -16,12 +16,15 @@ public class TodoService {
 
     @Inject TodoRepository repository;
 
+    @Inject OutboxRepository outbox;
+
     @Transactional
     public void addTodo(AddTodoRequest request, AddTodoResponse response) {
         var todo = Todo.incomplete(externalIdProvider.next(), clock.now(), request.summary());
 
         var result = repository.save(todo);
         if (result.isRight()) {
+            outbox.insert(new NewTodoCreatedEvent(todo));
             response.createdTodo(todo);
         } else {
             response.failedToCreateTodo(result.getLeft());

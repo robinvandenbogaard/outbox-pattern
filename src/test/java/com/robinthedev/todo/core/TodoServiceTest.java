@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.is;
 
 import com.robinthedev.todo.core.domain.ExternalId;
 import com.robinthedev.todo.core.domain.Summary;
+import com.robinthedev.todo.core.events.NewTodoCreatedEvent;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -18,6 +19,7 @@ public class TodoServiceTest {
     private FakeClock fakeClock;
     private FakeIdGenerator fakeIdGenerator;
     private FakeTodoRepository fakeRepository;
+    private FakeOutboxRepository fakeOutboxRepository;
 
     @BeforeEach
     void beforeEach() {
@@ -25,6 +27,7 @@ public class TodoServiceTest {
         service.clock = fakeClock = new FakeClock();
         service.repository = fakeRepository = new FakeTodoRepository();
         service.externalIdProvider = fakeIdGenerator = new FakeIdGenerator();
+        service.outbox = fakeOutboxRepository = new FakeOutboxRepository();
     }
 
     @Test
@@ -94,5 +97,16 @@ public class TodoServiceTest {
         assertThat(
                 response.getCreatedTodo().externalId().uuid(),
                 is(UUID.fromString("8114ffb5-8a63-43a9-8d6d-cb45a4d92d63")));
+    }
+
+    @Test
+    void addEventToOutbox() {
+        var response = new TestAddTodoResponse();
+
+        service.addTodo(new AddTodoRequest(new Summary("Laundry")), response);
+
+        assertThat(
+                fakeOutboxRepository.getInsertedEvent(),
+                is(new NewTodoCreatedEvent(response.getCreatedTodo())));
     }
 }

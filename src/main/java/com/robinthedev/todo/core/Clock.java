@@ -1,4 +1,4 @@
-package com.robinthedev.time;
+package com.robinthedev.todo.core;
 
 import java.time.LocalDateTime;
 
