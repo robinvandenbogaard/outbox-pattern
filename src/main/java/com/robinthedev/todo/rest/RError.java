@@ -1,6 +1,6 @@
-package com.robinthedev.outbox.rest;
+package com.robinthedev.todo.rest;
 
-import com.robinthedev.outbox.todos.domain.TodoError;
+import com.robinthedev.todo.core.domain.TodoError;
 
 public record RError(String message) {
     public RError(TodoError error) {

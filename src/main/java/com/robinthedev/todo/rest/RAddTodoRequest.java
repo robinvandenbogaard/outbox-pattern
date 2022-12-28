@@ -1,7 +1,7 @@
-package com.robinthedev.outbox.rest;
+package com.robinthedev.todo.rest;
 
-import com.robinthedev.outbox.todos.AddTodoRequest;
-import com.robinthedev.outbox.todos.domain.Summary;
+import com.robinthedev.todo.core.AddTodoRequest;
+import com.robinthedev.todo.core.domain.Summary;
 
 record RAddTodoRequest(String summary) {
     public AddTodoRequest toDomainRequest() {

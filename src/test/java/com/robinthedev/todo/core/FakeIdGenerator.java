@@ -1,6 +1,6 @@
-package com.robinthedev.outbox.todos;
+package com.robinthedev.todo.core;
 
-import com.robinthedev.outbox.todos.domain.ExternalId;
+import com.robinthedev.todo.core.domain.ExternalId;
 import java.util.UUID;
 
 public class FakeIdGenerator implements ExternalIdProvider {

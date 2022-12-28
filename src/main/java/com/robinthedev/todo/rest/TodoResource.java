@@ -1,6 +1,6 @@
-package com.robinthedev.outbox.rest;
+package com.robinthedev.todo.rest;
 
-import com.robinthedev.outbox.todos.TodoService;
+import com.robinthedev.todo.core.TodoService;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

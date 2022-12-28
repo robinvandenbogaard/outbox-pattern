@@ -1,10 +1,10 @@
-package com.robinthedev.outbox.todos;
+package com.robinthedev.todo.core;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-import com.robinthedev.outbox.todos.domain.ExternalId;
-import com.robinthedev.outbox.todos.domain.Summary;
+import com.robinthedev.todo.core.domain.ExternalId;
+import com.robinthedev.todo.core.domain.Summary;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.Month;

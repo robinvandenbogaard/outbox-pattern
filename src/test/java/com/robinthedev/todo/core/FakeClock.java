@@ -1,4 +1,4 @@
-package com.robinthedev.outbox.todos;
+package com.robinthedev.todo.core;
 
 import com.robinthedev.time.Clock;
 import java.time.LocalDateTime;

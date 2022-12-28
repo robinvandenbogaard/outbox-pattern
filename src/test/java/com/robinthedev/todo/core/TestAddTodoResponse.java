@@ -1,7 +1,7 @@
-package com.robinthedev.outbox.todos;
+package com.robinthedev.todo.core;
 
-import com.robinthedev.outbox.todos.domain.Todo;
-import com.robinthedev.outbox.todos.domain.TodoError;
+import com.robinthedev.todo.core.domain.Todo;
+import com.robinthedev.todo.core.domain.TodoError;
 
 public class TestAddTodoResponse implements AddTodoResponse {
     private Todo todo;

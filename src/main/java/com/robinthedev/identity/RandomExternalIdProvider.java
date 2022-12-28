@@ -1,7 +1,7 @@
 package com.robinthedev.identity;
 
-import com.robinthedev.outbox.todos.ExternalIdProvider;
-import com.robinthedev.outbox.todos.domain.ExternalId;
+import com.robinthedev.todo.core.ExternalIdProvider;
+import com.robinthedev.todo.core.domain.ExternalId;
 import java.util.UUID;
 import javax.enterprise.context.ApplicationScoped;
 

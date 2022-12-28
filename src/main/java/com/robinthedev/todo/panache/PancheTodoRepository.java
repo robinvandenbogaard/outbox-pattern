@@ -1,10 +1,10 @@
-package com.robinthedev.outbox.panache;
+package com.robinthedev.todo.panache;
 
-import com.robinthedev.outbox.todos.TodoRepository;
-import com.robinthedev.outbox.todos.domain.ExternalId;
-import com.robinthedev.outbox.todos.domain.Summary;
-import com.robinthedev.outbox.todos.domain.Todo;
-import com.robinthedev.outbox.todos.domain.TodoError;
+import com.robinthedev.todo.core.TodoRepository;
+import com.robinthedev.todo.core.domain.ExternalId;
+import com.robinthedev.todo.core.domain.Summary;
+import com.robinthedev.todo.core.domain.Todo;
+import com.robinthedev.todo.core.domain.TodoError;
 import io.quarkus.panache.common.exception.PanacheQueryException;
 import io.vavr.control.Either;
 import java.util.List;

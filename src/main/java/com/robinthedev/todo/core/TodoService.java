@@ -1,8 +1,8 @@
-package com.robinthedev.outbox.todos;
+package com.robinthedev.todo.core;
 
-import com.robinthedev.outbox.rest.RListTodosResponse;
-import com.robinthedev.outbox.todos.domain.Todo;
 import com.robinthedev.time.Clock;
+import com.robinthedev.todo.core.domain.Todo;
+import com.robinthedev.todo.rest.RListTodosResponse;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;

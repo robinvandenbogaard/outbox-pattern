@@ -1,4 +1,4 @@
-package com.robinthedev.outbox.todos.domain;
+package com.robinthedev.todo.core.domain;
 
 import java.time.LocalDateTime;
 
